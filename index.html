@@ -21,6 +21,20 @@ Other
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	    <style>
+
+        .info-section {
+           display: flex;
+           justify-content: center;
+            margin: 0;
+            background-color: #f0f0f0;
+            
+            
+        }
+        .info-block {
+            width: 30%;
+        }
+    </style>
 	<body class="is-preload">
 
 		<!-- Header -->
@@ -174,12 +188,7 @@ Let <strong>MAKE IT FLOW LLC</strong> be the steady stream that supports you in 
 								<h2>Contact</h2>
 							</header>
 
-							<p>Address
-196 Winifred Dr, Totowa 
-
-                                    New Jersey 07512</p>
-
-							<form method="post" action="#">
+							<form method="post" action="mail.php">
 								<div class="row">
 									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
 									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
@@ -195,8 +204,23 @@ Let <strong>MAKE IT FLOW LLC</strong> be the steady stream that supports you in 
 						</div>
 					</section>
 
-			</div>
+<div class="info-section">
+        <div class="info-block">
+            <h2>Address</h2>
+            <p>196 Winifred Dr, Totowa<br>New Jersey 07512</p>
+        </div>
+        <div class="info-block">
+            <h2>Hours</h2>
+            <p>Monday — Friday<br>7:00am — 10:30pm</p>
+            <p>Saturday — Sunday<br>7am — 11pm</p>
+        </div>
+        <div class="info-block">
+            <h2>Contact</h2>
+            <p><a href="mailto:makeitflow24@gmail.com">makeitflow24@gmail.com</a><br>(973) 338-2626</p>
+        </div>
+    </div>
 
+	</div>
 		<!-- Footer -->
 			<div id="footer">
 
