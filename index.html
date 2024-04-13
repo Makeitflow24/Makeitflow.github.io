@@ -21,21 +21,29 @@ Other
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	    <style>
+<style>
+    .info-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-color: #f0f0f0;
+        flex-wrap: wrap; /* This will allow the items to wrap to the next line on smaller screens */
+    }
+    .info-block {
+        width: 20%;
+			text-align: center; /* Center text within blocks */
+			margin: 10px; /* Add margin between blocks */
+    }
 
-        .info-section {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-            margin: 0;
-            background-color: #f0f0f0;
-            
-            
-        }
+    /* This is a media query for screens smaller than 600px */
+    @media (max-width: 600px) {
         .info-block {
-            width: 20%;
+            width: 100%; /* This will make the blocks stack vertically on smaller screens */
+            text-align: center; /* This will center the text within each block */
         }
-    </style>
+    }
+</style>
 	<body class="is-preload">
 
 		<!-- Header -->
@@ -55,7 +63,7 @@ Other
 							<ul>
 								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
 								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Services</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Us</span></a></li>
 								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
 							</ul>
 						</nav>
