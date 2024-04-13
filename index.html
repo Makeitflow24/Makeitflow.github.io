@@ -20,6 +20,8 @@ Other
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 <style>
     .info-section {
@@ -43,6 +45,36 @@ Other
             text-align: center; /* This will center the text within each block */
         }
     }
+	
+	.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 999;
+	}
+
+	.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold; /* Make the "X" bold */
+    font-size: 50px; /* Increase the font size */
+    color: red; /* Set the color of the "X" */
+    z-index: 1000; /* Ensure the "X" appears above the popup */
+}
+
+	#popupContent {
+		margin-top: 20px;
+	}
+
+	
+	
 </style>
 	<body class="is-preload">
 
@@ -74,11 +106,11 @@ Other
 
 					<!-- Social Icons -->
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://www.instagram.com/makeitflow24/" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+							<li><a href="https://www.facebook.com/profile.php?id=61558023837864" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
+							<li><a href="https://github.com/Makeitflow24/" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
+							<li><a href="https://twitter.com/makeitflow24" target="_blank"><i class="fab fa-x-twitter"></i><span class="label"></span></a></li>
+							<li><a href="mailto:makeitflow24@gmail.com?subject=Email Me: Help me Sensei!" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
 						</ul>
 
 				</div>
@@ -122,45 +154,59 @@ Other
 							<div class="row">
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/DrainCleaning.png" alt="" /></a>
+										<!-- <a href="#" class="image fit"><img src="images/DrainCleaning.png" alt="" /></a>-->
+										<!-- <a href="" class="image fit" id="myBtn"><img src="images/DrainCleaning.png" alt="" /></a>-->
+										<a href="#" class="image fit" id="imageLink1">
+											<img src="images/DrainCleaning.png" alt="Drain Cleaning Image" id="drainImage" />
+										</a>
+																			
 										<header>
 											<h3>Drain Cleaning</h3>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+										<a href="#" class="image fit" id="imageLink4"><img src="images/Preventive_Maintenance.png" alt="" /></a>
 										<header>
-											<h3>test1</h3>
+											<h3>Preventive Maintenance</h3>
 										</header>
 									</article>
 								</div>
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/SewerRepir.png" alt="" /></a>
+										<!--<a href="#" class="image fit"><img src="images/SewerRepir.png" alt="" /></a>-->
+										<a href="#" class="image fit" id="imageLink2">
+											<img src="images/SewerRepir.png" alt="Sewer Repir Image" id="" />
+										</a>
+										
 										<header>
 											<h3>Sewer Repair</h3>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+										<a href="#" class="image fit"  id="imageLink5"><img src="images/Emergency_Services.png" alt="" /></a>
 										<header>
-											<h3>test2</h3>
+											<h3>Emergency Services</h3>
 										</header>
 									</article>
 								</div>
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/hydrojetting.png" alt="" /></a>
+										<a href="#" class="image fit" id="imageLink3"><img src="images/hydrojetting.png" alt="" /></a>
 										<header>
 											<h3>Hydro Jetting</h3>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										<a href="#" class="image fit" id="imageLink6"><img src="images/Drainage_Consultation.png" alt="" /></a>
 										<header>
-											<h3>test3</h3>
+											<h3>Drainage Consultation</h3>
 										</header>
 									</article>
+								</div>
+								<!-- Pup Up logic -->
+								<div class="popup" id="popup">
+											<span class="close" id="close">&times;</span>
+											<p id="popupContent"></p>
 								</div>
 							</div>
 
@@ -216,7 +262,7 @@ Let <strong>MAKE IT FLOW LLC</strong> be the steady stream that supports you in 
         </div>
         <div class="info-block">
             <h2>Contact</h2>
-            <p><a href="mailto:makeitflow24@gmail.com">makeitflow24@gmail.com</a><br>(973) 338-2626</p>
+            <p><a href="mailto:makeitflow24@gmail.com">makeitflow24@gmail.com</a><br><a href="tel:+19733382626">(973) 338-2626</a></p>
         </div>
     </div>
 
@@ -226,8 +272,20 @@ Let <strong>MAKE IT FLOW LLC</strong> be the steady stream that supports you in 
 
 				<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+						<li>
+							&copy; Make It Flow, LLC and GitHub. All rights reserved.</li><li>Design Powered by: <a href="http://html5up.net">HTML5 UP</a>	
+						</li>
+					</ul> 
+					<ul class="copyright">
+						<li>	
+							<p class="heart">
+							<center>
+								Made with love
+							</center>
+								<img src="http://www.picgifs.com/graphics/h/hearts/graphics-hearts-212256.gif" alt="Mountain View" style="width:80px;height:80px;"> 
+							</p>
+						</li>
+					</ul> 
 
 			</div>
 
@@ -239,6 +297,56 @@ Let <strong>MAKE IT FLOW LLC</strong> be the steady stream that supports you in 
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<!-- The script for Popup	-->
+			<script>
+			// Get the popup elements
+			var popup = document.getElementById("popup");
+			var popupContent = document.getElementById("popupContent");
+			var close = document.getElementById("close");
+
+			// Define the content for each image
+			var imageContentMap = {
+				"DrainCleaning.png": "<strong><h2>Drain Cleaning:</h2></strong> We clean drains from the kitchen sink to the main sewer line. Any sewer backs up in any fixture like a bathtub, shower stall, or toilet. Dealing with roots in the main sewer line.",
+				"SewerRepir.png": "<strong><h2>Sewer Repair:</h2></strong> Having continuous problems with the main sewer line getting clogged more often, we got your back. We have advanced tools to diagnose the problem and leave you with a with a solution. Buying a new home? Have your main sewer line inspected with our cameras.",
+				"hydrojetting.png": "<strong><h2>Hydro Jetting:</h2></strong> Whether you build up scale or grease in sewer lines or deal with a lot of roots, our high-pressure hydro jet machine has a solution to all your problems.",
+				"Preventive_Maintenance.png": "<strong><h2>Preventive Maintenance:</h2></strong>Our regular maintenance service helps prevent major issues, ensuring your drainage systems are always in top condition.",
+				"Emergency_Services.png": "<strong><h2>Emergency Services:</h2></strong>Our team is available 24/7 for any urgent drainage issues, providing quick and efficient solutions when you need them most.",
+				"Drainage_Consultation.png": "<strong><h2>Drainage Consultation:</h2></strong>We provide expert advice on the best drainage systems for your needs, how to maintain your systems, and what to do in case of a problem."
+				
+				
+				
+				
+				// Add more image filenames and corresponding content as needed
+			};
+
+			// Add click event listeners to the images
+			var imageLinks = document.querySelectorAll(".image");
+			imageLinks.forEach(function(imageLink) {
+				imageLink.addEventListener("click", function(event) {
+					event.preventDefault();
+					var imagePath = this.querySelector("img").getAttribute("src").split("/").pop();
+					var content = imageContentMap[imagePath];
+					if (content) {
+						popupContent.innerHTML = content;
+						popup.style.display = "block";
+					}
+				});
+			});
+
+			// Add click event listener to close button
+			close.addEventListener("click", function() {
+				popup.style.display = "none";
+			});
+
+			// Close popup when clicking outside of it
+			window.addEventListener("click", function(event) {
+				if (event.target == popup || event.target == close) {
+					popup.style.display = "none";
+				}
+			});
+
+			
+			</script>
 
 	</body>
 </html>
